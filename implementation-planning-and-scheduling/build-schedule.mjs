@@ -1,12 +1,20 @@
 import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const dataPath = path.join(__dirname, "soc-schedule-data.js");
+const templatePath = path.join(__dirname, "index-soc.html");
+const outputPath = path.join(__dirname, "schedule.html");
 
 const data = fs
-  .readFileSync("soc-schedule-data.js", "utf8")
+  .readFileSync(dataPath, "utf8")
   .replace(/export const /g, "const ")
   .replace(/export function /g, "function ")
   .replace(/export /g, "");
 
-let html = fs.readFileSync("index-soc.html", "utf8");
+let html = fs.readFileSync(templatePath, "utf8");
 html = html.replace(
   /<script src="soc-schedule-data\.js" type="module"><\/script>\s*<script type="module">/,
   "<script>"
@@ -17,10 +25,10 @@ html = html.replace(
   `<script>\n${data}\n\n    function showError`
 );
 
-fs.writeFileSync("schedule.html", html);
-const check = fs.readFileSync("schedule.html", "utf8");
+fs.writeFileSync(outputPath, html);
+const check = fs.readFileSync(outputPath, "utf8");
 if (!check.includes("const PROJECT")) {
   console.error("BUILD FAILED: data not injected");
   process.exit(1);
 }
-console.log("Built schedule.html", fs.statSync("schedule.html").size, "bytes");
+console.log("Built schedule.html", fs.statSync(outputPath).size, "bytes");
