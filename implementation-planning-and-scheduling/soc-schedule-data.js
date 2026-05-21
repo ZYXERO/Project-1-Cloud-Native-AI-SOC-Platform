@@ -1,6 +1,8 @@
 export const PROJECT = {
   title: "Cloud-Native AI SOC Platform",
+  shortName: "AI SOC + Cloud Security Intelligence Platform",
   subtitle: "Execution Schedule",
+  badge: "PROJECT 1",
   start: "May 22",
   end: "June 30",
   weeks: 6,
@@ -12,6 +14,209 @@ export const PROJECT = {
   buildHrs: 162,
   mvpWeek: 3,
 };
+
+export const PROJECT_ABOUT = {
+  overview:
+    "A real-time AI-powered Security Operations Center (SOC) that ingests logs from cloud and applications, detects suspicious activity, and uses LLMs to explain security incidents.",
+  analogy: "Splunk + Microsoft Sentinel + ChatGPT Security Analyst combined",
+  sprintNote:
+    "This 6-week sprint (May 22 – June 30) is the focused execution window. Skill learning times below are total mastery estimates; you apply them just-in-time during each week.",
+  phases: [
+    {
+      color: "#7c3aed",
+      name: "Phase 1 — Core Backend + Data Pipeline",
+      weeks: "Sprint Weeks 1–2",
+      items: [
+        "Node/Python API, PostgreSQL + Redis",
+        "JWT authentication",
+        "Kafka event stream (log ingestion)",
+        "Basic logging pipeline",
+      ],
+      output: "Backend + data flow working",
+    },
+    {
+      color: "#2563eb",
+      name: "Phase 2 — Cloud + Infrastructure",
+      weeks: "Sprint Week 5",
+      items: [
+        "Dockerize services (local from Week 1)",
+        "Deploy on AWS (EC2 + S3)",
+        "IAM roles + networking basics",
+      ],
+      output: "System running in cloud (HTTPS)",
+    },
+    {
+      color: "#ea580c",
+      name: "Phase 3 — AI Layer",
+      weeks: "Sprint Weeks 3–4",
+      items: [
+        "LLM incident summaries (Week 3 MVP)",
+        "RAG system + vector DB (Week 4)",
+        "Prompt engineering for security context",
+      ],
+      output: "AI security analyst working",
+    },
+    {
+      color: "#0d9488",
+      name: "Phase 4 — Frontend Dashboard",
+      weeks: "Sprint Week 3 (+ polish Week 6)",
+      items: [
+        "React/Next.js dashboard",
+        "Live security alerts & incident feed",
+        "Real-time log stream (SSE Week 4)",
+      ],
+      output: "Usable SOC dashboard",
+    },
+    {
+      color: "#16a34a",
+      name: "Phase 5 — Automation + CI/CD",
+      weeks: "Sprint Weeks 3 & 6",
+      items: [
+        "GitHub Actions CI/CD",
+        "Staging → prod gates (Week 6)",
+        "Monitoring + health checks",
+      ],
+      output: "Production-grade delivery pipeline",
+    },
+    {
+      color: "#1f2937",
+      name: "Phase 6 — Optimization + Polish",
+      weeks: "Sprint Week 6",
+      items: [
+        "Kubernetes scaling basics",
+        "Security hardening pass",
+        "Load testing + portfolio docs",
+      ],
+      output: "Portfolio-ready flagship project",
+    },
+  ],
+  outcomes: [
+    "Cloud Engineering (AWS + Kubernetes)",
+    "DevOps (CI/CD + Docker + automation)",
+    "Backend Engineering (APIs + auth + streaming)",
+    "Distributed Systems (Kafka pipeline)",
+    "AI Engineering (RAG + LLM systems)",
+    "Cybersecurity (IAM + SOC concepts)",
+    "Full-stack engineering (React dashboard)",
+  ],
+  insight:
+    "This ONE project overlaps SOC training, Azure AI Foundry work, RAG experience, and cloud certifications — your flagship enterprise portfolio piece.",
+};
+
+export const SKILL_CATEGORIES = [
+  {
+    n: 1,
+    heading: "Frontend",
+    stack: "React.js / Next.js / JavaScript / TypeScript",
+    learnTime: "2–3 weeks total (core React + TypeScript patterns)",
+    sprint: { learn: [3], build: [3, 4, 6], label: "Learn: Week 3 · Build: Weeks 3, 4, 6" },
+    skills: [
+      { n: 1, name: "React.js", learnTime: "1–2 weeks" },
+      { n: 2, name: "Next.js (App Router)", learnTime: "3–5 days (during sprint Wk3)" },
+      { n: 3, name: "TypeScript (applied)", learnTime: "ongoing with React" },
+      { n: 4, name: "SWR / React Query", learnTime: "2–3 days (Week 3)" },
+      { n: 5, name: "Recharts / Shadcn UI", learnTime: "2–3 days (Week 3)" },
+    ],
+  },
+  {
+    n: 2,
+    heading: "Backend",
+    stack: "Node.js (Express) / Python (FastAPI) · REST · JWT · WebSockets",
+    learnTime: "Node 2 weeks · FastAPI 1–2 weeks · JWT 3–4 days · WebSockets 2–3 days",
+    sprint: { learn: [1, 2], build: [1, 2, 3, 4, 5], label: "Learn: Weeks 1–2 · Build: Weeks 1–5" },
+    skills: [
+      { n: 1, name: "REST API design & architecture", learnTime: "3–4 days (Week 1)" },
+      { n: 2, name: "Node.js + Express (or FastAPI)", learnTime: "2 weeks (Weeks 1–2)" },
+      { n: 3, name: "JWT auth (register/login/refresh)", learnTime: "3–4 days (Week 1)" },
+      { n: 4, name: "API middleware & error handling", learnTime: "2–3 days (Week 1)" },
+      { n: 5, name: "WebSockets / SSE", learnTime: "2–3 days (Week 4)" },
+    ],
+  },
+  {
+    n: 3,
+    heading: "Data Storage & Streaming",
+    stack: "PostgreSQL · Redis · Kafka · Spark · MongoDB · ETL",
+    learnTime: "Postgres 1 wk · Redis 3–4 d · Kafka 1–2 wk · Spark 1–2 wk · MongoDB 3–4 d · ETL 1 wk",
+    sprint: { learn: [1, 2, 4], build: [1, 2, 4], label: "Learn: Weeks 1, 2, 4 · Build: Weeks 1, 2, 4" },
+    skills: [
+      { n: 1, name: "PostgreSQL schema + JSONB logs", learnTime: "1 week (Week 1)" },
+      { n: 2, name: "Redis caching (cache-aside, TTL)", learnTime: "3–4 days (Week 2)" },
+      { n: 3, name: "Kafka (topics, consumers, offsets)", learnTime: "1–2 weeks (Week 2)" },
+      { n: 4, name: "ETL / event pipelines", learnTime: "1 week (applied Week 2)" },
+      { n: 5, name: "Apache Spark", learnTime: "1–2 weeks (stretch / post-sprint)" },
+      { n: 6, name: "MongoDB", learnTime: "3–4 days (optional)" },
+    ],
+  },
+  {
+    n: 4,
+    heading: "Infrastructure",
+    stack: "Docker · Kubernetes · Terraform concepts · Linux/Bash · Networking",
+    learnTime: "Linux 1 wk · Networking 1 wk · Docker 1 wk · K8s 2–3 wk · Terraform 1 wk",
+    sprint: { learn: [1, 5, 6], build: [1, 5, 6], label: "Learn: Weeks 1, 5, 6 · Build: Weeks 1, 5, 6" },
+    skills: [
+      { n: 1, name: "Docker + Docker Compose", learnTime: "1 week (Week 1)" },
+      { n: 2, name: "Linux / Bash / WSL", learnTime: "1 week (ongoing)" },
+      { n: 3, name: "Networking (TCP/IP, DNS, HTTP/S)", learnTime: "1 week (Week 5)" },
+      { n: 4, name: "Kubernetes basics", learnTime: "2–3 weeks (Week 6)" },
+      { n: 5, name: "Terraform concepts", learnTime: "1 week (post-sprint)" },
+    ],
+  },
+  {
+    n: 5,
+    heading: "Cloud Deployment",
+    stack: "AWS (EC2, S3, IAM) · Azure Cloud",
+    learnTime: "AWS core 2–3 weeks · IAM 4–5 days · Azure basics 1 week",
+    sprint: { learn: [5], build: [5, 6], label: "Learn: Week 5 · Build: Weeks 5–6" },
+    skills: [
+      { n: 1, name: "AWS EC2 + security groups", learnTime: "1 week (Week 5)" },
+      { n: 2, name: "S3 + lifecycle / presigned URLs", learnTime: "3–4 days (Week 5)" },
+      { n: 3, name: "IAM roles & least-privilege", learnTime: "4–5 days (Week 5)" },
+      { n: 4, name: "Azure Cloud basics", learnTime: "1 week (parallel / post-sprint)" },
+    ],
+  },
+  {
+    n: 6,
+    heading: "Security Layer",
+    stack: "IAM · JWT · OAuth2 · TLS/HTTPS · Container security",
+    learnTime: "IAM 1 wk · OAuth2+JWT 4–5 d · Network security 1 wk · Container 4–5 d",
+    sprint: { learn: [1, 5], build: [1, 5, 6], label: "Learn: Weeks 1, 5 · Build: Weeks 1, 5–6" },
+    skills: [
+      { n: 1, name: "JWT + secure API design", learnTime: "4–5 days (Week 1)" },
+      { n: 2, name: "OAuth2 (e.g. Google login)", learnTime: "2–3 days (Week 5)" },
+      { n: 3, name: "IAM (AWS / Azure AD concepts)", learnTime: "1 week (Week 5)" },
+      { n: 4, name: "TLS / HTTPS / Nginx + Certbot", learnTime: "3–4 days (Week 5)" },
+      { n: 5, name: "Container security", learnTime: "4–5 days (Week 6)" },
+    ],
+  },
+  {
+    n: 7,
+    heading: "AI Layer",
+    stack: "PyTorch · Hugging Face · RAG · Vector DBs · LangChain · Prompt Engineering",
+    learnTime: "PyTorch 2–3 wk · HF 1 wk · RAG 1–2 wk · Vector DB 3–4 d · LangChain 4–5 d",
+    sprint: { learn: [3, 4], build: [3, 4], label: "Learn: Weeks 3–4 · Build: Weeks 3–4" },
+    skills: [
+      { n: 1, name: "LLM API integration (OpenAI/Anthropic)", learnTime: "2–3 days (Week 3)" },
+      { n: 2, name: "Prompt engineering (security analyst)", learnTime: "2–3 days + ongoing" },
+      { n: 3, name: "Embeddings + vector similarity", learnTime: "3–4 days (Week 4)" },
+      { n: 4, name: "RAG pipelines", learnTime: "1–2 weeks (Week 4)" },
+      { n: 5, name: "pgvector / Qdrant", learnTime: "3–4 days (Week 4)" },
+      { n: 6, name: "PyTorch + Hugging Face", learnTime: "2–3 weeks (depth post-sprint)" },
+      { n: 7, name: "LangChain-style orchestration", learnTime: "4–5 days (Week 4)" },
+    ],
+  },
+  {
+    n: 8,
+    heading: "Automation Layer",
+    stack: "GitHub Actions · n8n · Postman",
+    learnTime: "CI/CD 1 week · n8n 3–4 days · Postman 1–2 days",
+    sprint: { learn: [3, 6], build: [3, 6], label: "Learn: Weeks 3, 6 · Build: Weeks 3, 6" },
+    skills: [
+      { n: 1, name: "GitHub Actions CI/CD", learnTime: "1 week (Weeks 3 & 6)" },
+      { n: 2, name: "Postman / HTTPie API testing", learnTime: "1–2 days (Week 1+)" },
+      { n: 3, name: "n8n workflows", learnTime: "3–4 days (post-sprint / optional)" },
+    ],
+  },
+];
 
 export const WEEKS = [
   {

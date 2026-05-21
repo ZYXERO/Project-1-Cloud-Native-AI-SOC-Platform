@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cloud-Native AI SOC — Execution Schedule</title>
+  <title>Project 1 — AI SOC Platform · Schedule & Skills</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *,*::before,*::after{box-sizing:border-box}
@@ -137,13 +137,43 @@
     .wk-slot.cat-work.soc-learn{border-color:#7c3aed;background:#ede9fe}
     .wk-slot.cat-work.soc-build{border-color:#0d9488;background:#ecfdf5}
     .wk-milestone{margin:8px;padding:8px;background:#ecfdf5;border-radius:6px;font-size:.68rem;color:#166534}
+    .about-hero{background:linear-gradient(135deg,#f5f3ff 0%,#fff 60%);border:1px solid var(--border);border-radius:var(--radius);padding:22px 24px;margin-bottom:18px}
+    .about-hero .badge{display:inline-block;background:var(--accent);color:#fff;font-size:.72rem;font-weight:700;padding:4px 12px;border-radius:999px;margin-bottom:10px}
+    .about-hero h2{margin:0 0 8px;font-size:1.2rem}
+    .about-hero .analogy{font-size:1rem;font-weight:600;color:#5b21b6;margin:0 0 10px}
+    .about-hero p{margin:0 0 8px;color:var(--muted);font-size:.9rem;line-height:1.55}
+    .phase-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin:18px 0}
+    .phase-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;border-top:4px solid var(--accent)}
+    .phase-card h4{margin:0 0 4px;font-size:.88rem}
+    .phase-card .pw{font-size:.72rem;color:var(--muted);margin-bottom:8px}
+    .phase-card ul{margin:0;padding-left:16px;font-size:.82rem}
+    .phase-card li{margin-bottom:4px}
+    .phase-out{margin-top:8px;font-size:.78rem;font-weight:600;color:#166534}
+    .outcome-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin:16px 0}
+    .outcome-list span{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:8px 12px;font-size:.82rem}
+    .insight-box{background:#fffbeb;border:1px solid #fde68a;border-radius:var(--radius);padding:14px 16px;font-size:.88rem;margin-top:16px}
+    .skills-list{display:flex;flex-direction:column;gap:16px}
+    .skill-cat{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+    .skill-cat-head{padding:16px 18px;border-bottom:1px solid var(--border);background:#fafafa}
+    .skill-cat-head h3{margin:0;font-size:1rem;display:flex;align-items:center;gap:8px}
+    .skill-cat-head .num{color:var(--accent);font-weight:800}
+    .skill-stack{font-size:.84rem;color:var(--muted);margin:6px 0 0}
+    .skill-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;font-size:.78rem}
+    .skill-meta span{background:#f3f4f6;padding:4px 10px;border-radius:6px}
+    .skill-meta .time{background:#fef3c7;color:#92400e}
+    .skill-meta .weeks{background:#ede9fe;color:#5b21b6;font-weight:600}
+    .skill-items{padding:12px 18px 16px}
+    .skill-item{display:grid;grid-template-columns:28px 1fr auto;gap:10px;padding:10px 0;border-bottom:1px solid #f3f4f6;align-items:start;font-size:.86rem}
+    .skill-item:last-child{border-bottom:none}
+    .skill-item .sn{font-weight:700;color:var(--muted);font-size:.8rem}
+    .skill-item .lt{font-size:.75rem;color:var(--muted);white-space:nowrap}
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="top">
       <div>
-        <h1 id="page-title">Cloud-Native AI SOC Platform — Execution Schedule</h1>
+        <h1 id="page-title">Project 1 — AI SOC Platform</h1>
         <p class="meta" id="page-meta">May 22 → June 30 · 6 weeks · 45 hrs/week · 270 hrs · 40% learn / 60% build</p>
       </div>
       <button type="button" class="copy-btn" id="copy-week">Copy week</button>
@@ -157,7 +187,12 @@
       <button type="button" class="view-tab" data-view="sprint">Sprint plan</button>
       <button type="button" class="view-tab" data-view="overview">Overview & Gantt</button>
       <button type="button" class="view-tab" data-view="availability">My routine</button>
+      <button type="button" class="view-tab" data-view="skills">Skills</button>
+      <button type="button" class="view-tab" data-view="about">About</button>
     </div>
+
+    <div class="panel" id="panel-about"></div>
+    <div class="panel" id="panel-skills"></div>
 
     <div class="panel active" id="panel-weekly">
       <div class="wk-toolbar">
@@ -216,7 +251,9 @@
   <script>
 const PROJECT = {
   title: "Cloud-Native AI SOC Platform",
+  shortName: "AI SOC + Cloud Security Intelligence Platform",
   subtitle: "Execution Schedule",
+  badge: "PROJECT 1",
   start: "May 22",
   end: "June 30",
   weeks: 6,
@@ -228,6 +265,209 @@ const PROJECT = {
   buildHrs: 162,
   mvpWeek: 3,
 };
+
+const PROJECT_ABOUT = {
+  overview:
+    "A real-time AI-powered Security Operations Center (SOC) that ingests logs from cloud and applications, detects suspicious activity, and uses LLMs to explain security incidents.",
+  analogy: "Splunk + Microsoft Sentinel + ChatGPT Security Analyst combined",
+  sprintNote:
+    "This 6-week sprint (May 22 – June 30) is the focused execution window. Skill learning times below are total mastery estimates; you apply them just-in-time during each week.",
+  phases: [
+    {
+      color: "#7c3aed",
+      name: "Phase 1 — Core Backend + Data Pipeline",
+      weeks: "Sprint Weeks 1–2",
+      items: [
+        "Node/Python API, PostgreSQL + Redis",
+        "JWT authentication",
+        "Kafka event stream (log ingestion)",
+        "Basic logging pipeline",
+      ],
+      output: "Backend + data flow working",
+    },
+    {
+      color: "#2563eb",
+      name: "Phase 2 — Cloud + Infrastructure",
+      weeks: "Sprint Week 5",
+      items: [
+        "Dockerize services (local from Week 1)",
+        "Deploy on AWS (EC2 + S3)",
+        "IAM roles + networking basics",
+      ],
+      output: "System running in cloud (HTTPS)",
+    },
+    {
+      color: "#ea580c",
+      name: "Phase 3 — AI Layer",
+      weeks: "Sprint Weeks 3–4",
+      items: [
+        "LLM incident summaries (Week 3 MVP)",
+        "RAG system + vector DB (Week 4)",
+        "Prompt engineering for security context",
+      ],
+      output: "AI security analyst working",
+    },
+    {
+      color: "#0d9488",
+      name: "Phase 4 — Frontend Dashboard",
+      weeks: "Sprint Week 3 (+ polish Week 6)",
+      items: [
+        "React/Next.js dashboard",
+        "Live security alerts & incident feed",
+        "Real-time log stream (SSE Week 4)",
+      ],
+      output: "Usable SOC dashboard",
+    },
+    {
+      color: "#16a34a",
+      name: "Phase 5 — Automation + CI/CD",
+      weeks: "Sprint Weeks 3 & 6",
+      items: [
+        "GitHub Actions CI/CD",
+        "Staging → prod gates (Week 6)",
+        "Monitoring + health checks",
+      ],
+      output: "Production-grade delivery pipeline",
+    },
+    {
+      color: "#1f2937",
+      name: "Phase 6 — Optimization + Polish",
+      weeks: "Sprint Week 6",
+      items: [
+        "Kubernetes scaling basics",
+        "Security hardening pass",
+        "Load testing + portfolio docs",
+      ],
+      output: "Portfolio-ready flagship project",
+    },
+  ],
+  outcomes: [
+    "Cloud Engineering (AWS + Kubernetes)",
+    "DevOps (CI/CD + Docker + automation)",
+    "Backend Engineering (APIs + auth + streaming)",
+    "Distributed Systems (Kafka pipeline)",
+    "AI Engineering (RAG + LLM systems)",
+    "Cybersecurity (IAM + SOC concepts)",
+    "Full-stack engineering (React dashboard)",
+  ],
+  insight:
+    "This ONE project overlaps SOC training, Azure AI Foundry work, RAG experience, and cloud certifications — your flagship enterprise portfolio piece.",
+};
+
+const SKILL_CATEGORIES = [
+  {
+    n: 1,
+    heading: "Frontend",
+    stack: "React.js / Next.js / JavaScript / TypeScript",
+    learnTime: "2–3 weeks total (core React + TypeScript patterns)",
+    sprint: { learn: [3], build: [3, 4, 6], label: "Learn: Week 3 · Build: Weeks 3, 4, 6" },
+    skills: [
+      { n: 1, name: "React.js", learnTime: "1–2 weeks" },
+      { n: 2, name: "Next.js (App Router)", learnTime: "3–5 days (during sprint Wk3)" },
+      { n: 3, name: "TypeScript (applied)", learnTime: "ongoing with React" },
+      { n: 4, name: "SWR / React Query", learnTime: "2–3 days (Week 3)" },
+      { n: 5, name: "Recharts / Shadcn UI", learnTime: "2–3 days (Week 3)" },
+    ],
+  },
+  {
+    n: 2,
+    heading: "Backend",
+    stack: "Node.js (Express) / Python (FastAPI) · REST · JWT · WebSockets",
+    learnTime: "Node 2 weeks · FastAPI 1–2 weeks · JWT 3–4 days · WebSockets 2–3 days",
+    sprint: { learn: [1, 2], build: [1, 2, 3, 4, 5], label: "Learn: Weeks 1–2 · Build: Weeks 1–5" },
+    skills: [
+      { n: 1, name: "REST API design & architecture", learnTime: "3–4 days (Week 1)" },
+      { n: 2, name: "Node.js + Express (or FastAPI)", learnTime: "2 weeks (Weeks 1–2)" },
+      { n: 3, name: "JWT auth (register/login/refresh)", learnTime: "3–4 days (Week 1)" },
+      { n: 4, name: "API middleware & error handling", learnTime: "2–3 days (Week 1)" },
+      { n: 5, name: "WebSockets / SSE", learnTime: "2–3 days (Week 4)" },
+    ],
+  },
+  {
+    n: 3,
+    heading: "Data Storage & Streaming",
+    stack: "PostgreSQL · Redis · Kafka · Spark · MongoDB · ETL",
+    learnTime: "Postgres 1 wk · Redis 3–4 d · Kafka 1–2 wk · Spark 1–2 wk · MongoDB 3–4 d · ETL 1 wk",
+    sprint: { learn: [1, 2, 4], build: [1, 2, 4], label: "Learn: Weeks 1, 2, 4 · Build: Weeks 1, 2, 4" },
+    skills: [
+      { n: 1, name: "PostgreSQL schema + JSONB logs", learnTime: "1 week (Week 1)" },
+      { n: 2, name: "Redis caching (cache-aside, TTL)", learnTime: "3–4 days (Week 2)" },
+      { n: 3, name: "Kafka (topics, consumers, offsets)", learnTime: "1–2 weeks (Week 2)" },
+      { n: 4, name: "ETL / event pipelines", learnTime: "1 week (applied Week 2)" },
+      { n: 5, name: "Apache Spark", learnTime: "1–2 weeks (stretch / post-sprint)" },
+      { n: 6, name: "MongoDB", learnTime: "3–4 days (optional)" },
+    ],
+  },
+  {
+    n: 4,
+    heading: "Infrastructure",
+    stack: "Docker · Kubernetes · Terraform concepts · Linux/Bash · Networking",
+    learnTime: "Linux 1 wk · Networking 1 wk · Docker 1 wk · K8s 2–3 wk · Terraform 1 wk",
+    sprint: { learn: [1, 5, 6], build: [1, 5, 6], label: "Learn: Weeks 1, 5, 6 · Build: Weeks 1, 5, 6" },
+    skills: [
+      { n: 1, name: "Docker + Docker Compose", learnTime: "1 week (Week 1)" },
+      { n: 2, name: "Linux / Bash / WSL", learnTime: "1 week (ongoing)" },
+      { n: 3, name: "Networking (TCP/IP, DNS, HTTP/S)", learnTime: "1 week (Week 5)" },
+      { n: 4, name: "Kubernetes basics", learnTime: "2–3 weeks (Week 6)" },
+      { n: 5, name: "Terraform concepts", learnTime: "1 week (post-sprint)" },
+    ],
+  },
+  {
+    n: 5,
+    heading: "Cloud Deployment",
+    stack: "AWS (EC2, S3, IAM) · Azure Cloud",
+    learnTime: "AWS core 2–3 weeks · IAM 4–5 days · Azure basics 1 week",
+    sprint: { learn: [5], build: [5, 6], label: "Learn: Week 5 · Build: Weeks 5–6" },
+    skills: [
+      { n: 1, name: "AWS EC2 + security groups", learnTime: "1 week (Week 5)" },
+      { n: 2, name: "S3 + lifecycle / presigned URLs", learnTime: "3–4 days (Week 5)" },
+      { n: 3, name: "IAM roles & least-privilege", learnTime: "4–5 days (Week 5)" },
+      { n: 4, name: "Azure Cloud basics", learnTime: "1 week (parallel / post-sprint)" },
+    ],
+  },
+  {
+    n: 6,
+    heading: "Security Layer",
+    stack: "IAM · JWT · OAuth2 · TLS/HTTPS · Container security",
+    learnTime: "IAM 1 wk · OAuth2+JWT 4–5 d · Network security 1 wk · Container 4–5 d",
+    sprint: { learn: [1, 5], build: [1, 5, 6], label: "Learn: Weeks 1, 5 · Build: Weeks 1, 5–6" },
+    skills: [
+      { n: 1, name: "JWT + secure API design", learnTime: "4–5 days (Week 1)" },
+      { n: 2, name: "OAuth2 (e.g. Google login)", learnTime: "2–3 days (Week 5)" },
+      { n: 3, name: "IAM (AWS / Azure AD concepts)", learnTime: "1 week (Week 5)" },
+      { n: 4, name: "TLS / HTTPS / Nginx + Certbot", learnTime: "3–4 days (Week 5)" },
+      { n: 5, name: "Container security", learnTime: "4–5 days (Week 6)" },
+    ],
+  },
+  {
+    n: 7,
+    heading: "AI Layer",
+    stack: "PyTorch · Hugging Face · RAG · Vector DBs · LangChain · Prompt Engineering",
+    learnTime: "PyTorch 2–3 wk · HF 1 wk · RAG 1–2 wk · Vector DB 3–4 d · LangChain 4–5 d",
+    sprint: { learn: [3, 4], build: [3, 4], label: "Learn: Weeks 3–4 · Build: Weeks 3–4" },
+    skills: [
+      { n: 1, name: "LLM API integration (OpenAI/Anthropic)", learnTime: "2–3 days (Week 3)" },
+      { n: 2, name: "Prompt engineering (security analyst)", learnTime: "2–3 days + ongoing" },
+      { n: 3, name: "Embeddings + vector similarity", learnTime: "3–4 days (Week 4)" },
+      { n: 4, name: "RAG pipelines", learnTime: "1–2 weeks (Week 4)" },
+      { n: 5, name: "pgvector / Qdrant", learnTime: "3–4 days (Week 4)" },
+      { n: 6, name: "PyTorch + Hugging Face", learnTime: "2–3 weeks (depth post-sprint)" },
+      { n: 7, name: "LangChain-style orchestration", learnTime: "4–5 days (Week 4)" },
+    ],
+  },
+  {
+    n: 8,
+    heading: "Automation Layer",
+    stack: "GitHub Actions · n8n · Postman",
+    learnTime: "CI/CD 1 week · n8n 3–4 days · Postman 1–2 days",
+    sprint: { learn: [3, 6], build: [3, 6], label: "Learn: Weeks 3, 6 · Build: Weeks 3, 6" },
+    skills: [
+      { n: 1, name: "GitHub Actions CI/CD", learnTime: "1 week (Weeks 3 & 6)" },
+      { n: 2, name: "Postman / HTTPie API testing", learnTime: "1–2 days (Week 1+)" },
+      { n: 3, name: "n8n workflows", learnTime: "3–4 days (post-sprint / optional)" },
+    ],
+  },
+];
 
 const WEEKS = [
   {
@@ -686,6 +926,58 @@ const DAILY_PLAN = generateDailyPlan();
       family: "Family", work: "SOC", free: "Free",
     };
 
+    function renderAbout() {
+      const a = PROJECT_ABOUT;
+      const phases = a.phases.map((p) => `
+        <div class="phase-card" style="border-top-color:${p.color}">
+          <h4>${esc(p.name)}</h4>
+          <p class="pw">${esc(p.weeks)}</p>
+          <ul>${p.items.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>
+          <p class="phase-out">✔ ${esc(p.output)}</p>
+        </div>`).join("");
+      document.getElementById("panel-about").innerHTML = `
+        <div class="about-hero">
+          <span class="badge">${esc(PROJECT.badge)}</span>
+          <h2>${esc(PROJECT.shortName)}</h2>
+          <p class="analogy">${esc(a.analogy)}</p>
+          <p>${esc(a.overview)}</p>
+          <p><strong>Sprint:</strong> ${esc(PROJECT.start)} – ${esc(PROJECT.end)}, 2026 · ${PROJECT.weeks} weeks · ${PROJECT.totalHrs} hours · ${PROJECT.learnPct}% learn / ${PROJECT.buildPct}% build</p>
+          <p>${esc(a.sprintNote)}</p>
+        </div>
+        <h3 style="margin:0 0 12px;font-size:1rem">Implementation phases (mapped to this sprint)</h3>
+        <div class="phase-grid">${phases}</div>
+        <h3 style="margin:18px 0 10px;font-size:1rem">Final outcome — what this project proves</h3>
+        <div class="outcome-list">${a.outcomes.map((o) => `<span>✔ ${esc(o)}</span>`).join("")}</div>
+        <div class="insight-box"><strong>Insight:</strong> ${esc(a.insight)}</div>`;
+    }
+
+    function renderSkills() {
+      document.getElementById("panel-skills").innerHTML = `
+        <p style="margin:0 0 16px;color:var(--muted);font-size:.88rem">
+          Numbered skills by category with <strong>total learning time</strong> and which <strong>sprint week(s)</strong> you learn vs build them (May 22 – Jun 30).
+        </p>
+        <div class="skills-list">${SKILL_CATEGORIES.map((cat) => `
+          <section class="skill-cat">
+            <div class="skill-cat-head">
+              <h3><span class="num">${cat.n}.</span> ${esc(cat.heading)}</h3>
+              <p class="skill-stack">${esc(cat.stack)}</p>
+              <div class="skill-meta">
+                <span class="time">⏱ ${esc(cat.learnTime)}</span>
+                <span class="weeks">📅 ${esc(cat.sprint.label)}</span>
+              </div>
+            </div>
+            <div class="skill-items">
+              ${cat.skills.map((s) => `
+                <div class="skill-item">
+                  <span class="sn">${cat.n}.${s.n}</span>
+                  <span>${esc(s.name)}</span>
+                  <span class="lt">⏱ ${esc(s.learnTime)}</span>
+                </div>`).join("")}
+            </div>
+          </section>`).join("")}
+        </div>`;
+    }
+
     function renderStats() {
       document.getElementById("stats").innerHTML = `
         <div class="stat"><b>${PROJECT.totalHrs}</b><span>Total hours</span></div>
@@ -991,9 +1283,11 @@ const DAILY_PLAN = generateDailyPlan();
     };
 
     try {
-      if (typeof PROJECT === "undefined" || typeof DAILY_PLAN === "undefined" || typeof buildMergedDay === "undefined") {
+      if (typeof PROJECT === "undefined" || typeof DAILY_PLAN === "undefined" || typeof buildMergedDay === "undefined" || typeof SKILL_CATEGORIES === "undefined") {
         throw new Error("Schedule data missing from HTML file. Run: node build-schedule.mjs");
       }
+      renderAbout();
+      renderSkills();
       renderStats();
       renderTabs();
       renderWeek();

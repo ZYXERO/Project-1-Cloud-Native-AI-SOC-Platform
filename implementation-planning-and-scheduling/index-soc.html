@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cloud-Native AI SOC — Execution Schedule</title>
+  <title>Project 1 — AI SOC Platform · Schedule & Skills</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *,*::before,*::after{box-sizing:border-box}
@@ -137,13 +137,43 @@
     .wk-slot.cat-work.soc-learn{border-color:#7c3aed;background:#ede9fe}
     .wk-slot.cat-work.soc-build{border-color:#0d9488;background:#ecfdf5}
     .wk-milestone{margin:8px;padding:8px;background:#ecfdf5;border-radius:6px;font-size:.68rem;color:#166534}
+    .about-hero{background:linear-gradient(135deg,#f5f3ff 0%,#fff 60%);border:1px solid var(--border);border-radius:var(--radius);padding:22px 24px;margin-bottom:18px}
+    .about-hero .badge{display:inline-block;background:var(--accent);color:#fff;font-size:.72rem;font-weight:700;padding:4px 12px;border-radius:999px;margin-bottom:10px}
+    .about-hero h2{margin:0 0 8px;font-size:1.2rem}
+    .about-hero .analogy{font-size:1rem;font-weight:600;color:#5b21b6;margin:0 0 10px}
+    .about-hero p{margin:0 0 8px;color:var(--muted);font-size:.9rem;line-height:1.55}
+    .phase-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin:18px 0}
+    .phase-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;border-top:4px solid var(--accent)}
+    .phase-card h4{margin:0 0 4px;font-size:.88rem}
+    .phase-card .pw{font-size:.72rem;color:var(--muted);margin-bottom:8px}
+    .phase-card ul{margin:0;padding-left:16px;font-size:.82rem}
+    .phase-card li{margin-bottom:4px}
+    .phase-out{margin-top:8px;font-size:.78rem;font-weight:600;color:#166534}
+    .outcome-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin:16px 0}
+    .outcome-list span{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:8px 12px;font-size:.82rem}
+    .insight-box{background:#fffbeb;border:1px solid #fde68a;border-radius:var(--radius);padding:14px 16px;font-size:.88rem;margin-top:16px}
+    .skills-list{display:flex;flex-direction:column;gap:16px}
+    .skill-cat{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+    .skill-cat-head{padding:16px 18px;border-bottom:1px solid var(--border);background:#fafafa}
+    .skill-cat-head h3{margin:0;font-size:1rem;display:flex;align-items:center;gap:8px}
+    .skill-cat-head .num{color:var(--accent);font-weight:800}
+    .skill-stack{font-size:.84rem;color:var(--muted);margin:6px 0 0}
+    .skill-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;font-size:.78rem}
+    .skill-meta span{background:#f3f4f6;padding:4px 10px;border-radius:6px}
+    .skill-meta .time{background:#fef3c7;color:#92400e}
+    .skill-meta .weeks{background:#ede9fe;color:#5b21b6;font-weight:600}
+    .skill-items{padding:12px 18px 16px}
+    .skill-item{display:grid;grid-template-columns:28px 1fr auto;gap:10px;padding:10px 0;border-bottom:1px solid #f3f4f6;align-items:start;font-size:.86rem}
+    .skill-item:last-child{border-bottom:none}
+    .skill-item .sn{font-weight:700;color:var(--muted);font-size:.8rem}
+    .skill-item .lt{font-size:.75rem;color:var(--muted);white-space:nowrap}
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="top">
       <div>
-        <h1 id="page-title">Cloud-Native AI SOC Platform — Execution Schedule</h1>
+        <h1 id="page-title">Project 1 — AI SOC Platform</h1>
         <p class="meta" id="page-meta">May 22 → June 30 · 6 weeks · 45 hrs/week · 270 hrs · 40% learn / 60% build</p>
       </div>
       <button type="button" class="copy-btn" id="copy-week">Copy week</button>
@@ -157,7 +187,12 @@
       <button type="button" class="view-tab" data-view="sprint">Sprint plan</button>
       <button type="button" class="view-tab" data-view="overview">Overview & Gantt</button>
       <button type="button" class="view-tab" data-view="availability">My routine</button>
+      <button type="button" class="view-tab" data-view="skills">Skills</button>
+      <button type="button" class="view-tab" data-view="about">About</button>
     </div>
+
+    <div class="panel" id="panel-about"></div>
+    <div class="panel" id="panel-skills"></div>
 
     <div class="panel active" id="panel-weekly">
       <div class="wk-toolbar">
@@ -228,6 +263,58 @@
       life: "Life", admin: "Admin", food: "Meals", fitness: "Gym",
       family: "Family", work: "SOC", free: "Free",
     };
+
+    function renderAbout() {
+      const a = PROJECT_ABOUT;
+      const phases = a.phases.map((p) => `
+        <div class="phase-card" style="border-top-color:${p.color}">
+          <h4>${esc(p.name)}</h4>
+          <p class="pw">${esc(p.weeks)}</p>
+          <ul>${p.items.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>
+          <p class="phase-out">✔ ${esc(p.output)}</p>
+        </div>`).join("");
+      document.getElementById("panel-about").innerHTML = `
+        <div class="about-hero">
+          <span class="badge">${esc(PROJECT.badge)}</span>
+          <h2>${esc(PROJECT.shortName)}</h2>
+          <p class="analogy">${esc(a.analogy)}</p>
+          <p>${esc(a.overview)}</p>
+          <p><strong>Sprint:</strong> ${esc(PROJECT.start)} – ${esc(PROJECT.end)}, 2026 · ${PROJECT.weeks} weeks · ${PROJECT.totalHrs} hours · ${PROJECT.learnPct}% learn / ${PROJECT.buildPct}% build</p>
+          <p>${esc(a.sprintNote)}</p>
+        </div>
+        <h3 style="margin:0 0 12px;font-size:1rem">Implementation phases (mapped to this sprint)</h3>
+        <div class="phase-grid">${phases}</div>
+        <h3 style="margin:18px 0 10px;font-size:1rem">Final outcome — what this project proves</h3>
+        <div class="outcome-list">${a.outcomes.map((o) => `<span>✔ ${esc(o)}</span>`).join("")}</div>
+        <div class="insight-box"><strong>Insight:</strong> ${esc(a.insight)}</div>`;
+    }
+
+    function renderSkills() {
+      document.getElementById("panel-skills").innerHTML = `
+        <p style="margin:0 0 16px;color:var(--muted);font-size:.88rem">
+          Numbered skills by category with <strong>total learning time</strong> and which <strong>sprint week(s)</strong> you learn vs build them (May 22 – Jun 30).
+        </p>
+        <div class="skills-list">${SKILL_CATEGORIES.map((cat) => `
+          <section class="skill-cat">
+            <div class="skill-cat-head">
+              <h3><span class="num">${cat.n}.</span> ${esc(cat.heading)}</h3>
+              <p class="skill-stack">${esc(cat.stack)}</p>
+              <div class="skill-meta">
+                <span class="time">⏱ ${esc(cat.learnTime)}</span>
+                <span class="weeks">📅 ${esc(cat.sprint.label)}</span>
+              </div>
+            </div>
+            <div class="skill-items">
+              ${cat.skills.map((s) => `
+                <div class="skill-item">
+                  <span class="sn">${cat.n}.${s.n}</span>
+                  <span>${esc(s.name)}</span>
+                  <span class="lt">⏱ ${esc(s.learnTime)}</span>
+                </div>`).join("")}
+            </div>
+          </section>`).join("")}
+        </div>`;
+    }
 
     function renderStats() {
       document.getElementById("stats").innerHTML = `
@@ -534,9 +621,11 @@
     };
 
     try {
-      if (typeof PROJECT === "undefined" || typeof DAILY_PLAN === "undefined" || typeof buildMergedDay === "undefined") {
+      if (typeof PROJECT === "undefined" || typeof DAILY_PLAN === "undefined" || typeof buildMergedDay === "undefined" || typeof SKILL_CATEGORIES === "undefined") {
         throw new Error("Schedule data missing from HTML file. Run: node build-schedule.mjs");
       }
+      renderAbout();
+      renderSkills();
       renderStats();
       renderTabs();
       renderWeek();
