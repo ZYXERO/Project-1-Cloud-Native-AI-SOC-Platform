@@ -1,0 +1,11 @@
+{
+  "name": "project-1-cloud-native-ai-soc-platform",
+  "private": true,
+  "description": "Root package for Vercel — builds static schedule only (app/ is separate).",
+  "scripts": {
+    "build": "node implementation-planning-and-scheduling/build-schedule.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -7,11 +7,15 @@ Share a public link so anyone can open your sprint planner in a browser.
 1. Go to [vercel.com](https://vercel.com) and sign in (GitHub login is easiest).
 2. Click **Add New… → Project**.
 3. Import **`Project-1-Cloud-Native-AI-SOC-Platform`** from your GitHub account.
-4. Vercel reads **`vercel.json`** at the repo root — you usually **do not** need to change settings:
-   - **Build Command:** `node implementation-planning-and-scheduling/build-schedule.mjs`
+4. Confirm these settings (from root **`vercel.json`** — override if Vercel guessed wrong):
+   - **Root Directory:** `.` (repository root — **not** `app/`)
+   - **Framework Preset:** **Other**
+   - **Build Command:** `npm run build`
    - **Output Directory:** `implementation-planning-and-scheduling`
-   - **Framework Preset:** Other (static)
+   - **Install Command:** leave default or empty
 5. Click **Deploy**.
+
+If a previous deploy failed, open **Settings → General** and ensure Root Directory is **not** set to `app` (Vite auto-detect often breaks this project).
 
 Your site will be live at something like:
 
