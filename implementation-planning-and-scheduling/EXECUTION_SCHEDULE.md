@@ -1,12 +1,12 @@
 # Execution Schedule — Cloud-Native AI SOC Platform
 
-**May 20 → June 30, 2026** · 6 weeks · 270 hours · 45 hrs/week · 40% learn / 60% build
+**May 22 → June 30, 2026** (project work starts Friday May 22) · 6 weeks · 270 hours · 45 hrs/week · 40% learn / 60% build
 
 ---
 
 ## Week 1: Architecture, Auth & Core API Foundation
 
-**May 20 – May 25** · 18h learn / 27h build
+**May 22 – May 27** · 18h learn / 27h build
 
 **Focus:** System design, monorepo scaffold, JWT auth, PostgreSQL schema, Docker Compose local stack.
 
@@ -35,7 +35,7 @@
 
 ## Week 2: Log Ingestion — Kafka + PostgreSQL + Redis
 
-**May 26 – June 1** · 18h learn / 27h build
+**May 28 – June 3** · 18h learn / 27h build
 
 **Focus:** Real-time ingestion, persistence, caching, REST APIs.
 
@@ -65,7 +65,7 @@
 
 ## Week 3: MVP — Dashboard + Basic AI Summarization
 
-**June 2 – June 8** · 18h learn / 27h build · **MVP TARGET**
+**June 4 – June 10** · 18h learn / 27h build · **MVP TARGET**
 
 **Focus:** Next.js dashboard, first LLM summarizer, demo-able end-to-end flow.
 
@@ -95,7 +95,7 @@
 
 ## Week 4: RAG — Vector DB, Embeddings, Intelligent Search
 
-**June 9 – June 15** · 18h learn / 27h build
+**June 11 – June 17** · 18h learn / 27h build
 
 **Focus:** Full RAG replaces naive LLM; natural language SOC search; SSE streaming.
 
@@ -125,7 +125,7 @@
 
 ## Week 5: AWS Deployment — EC2, S3, IAM + Hardening
 
-**June 16 – June 22** · 18h learn / 27h build · **PROD TARGET**
+**June 18 – June 24** · 18h learn / 27h build · **PROD TARGET**
 
 **Focus:** Public HTTPS deployment, S3 archival, least-privilege IAM.
 
@@ -155,7 +155,7 @@
 
 ## Week 6: Kubernetes, CI/CD Hardening, Polish
 
-**June 23 – June 30** · 18h learn / 27h build
+**June 25 – June 30** · 18h learn / 27h build
 
 **Focus:** K8s manifests, staging→prod CI/CD, observability, portfolio docs.
 

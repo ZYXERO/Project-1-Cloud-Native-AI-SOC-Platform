@@ -1,7 +1,7 @@
 export const PROJECT = {
   title: "Cloud-Native AI SOC Platform",
   subtitle: "Execution Schedule",
-  start: "May 20",
+  start: "May 22",
   end: "June 30",
   weeks: 6,
   hrsPerWeek: 45,
@@ -19,7 +19,7 @@ export const WEEKS = [
     color: "#7c3aed",
     tag: null,
     title: "Architecture, Auth & Core API Foundation",
-    dates: "May 20 – May 25",
+    dates: "May 22 – May 27",
     focus:
       "System design lockdown, project scaffolding, JWT auth, PostgreSQL schema, Docker Compose for local dev stack.",
     learnH: 18,
@@ -48,7 +48,7 @@ export const WEEKS = [
     color: "#0d9488",
     tag: null,
     title: "Log Ingestion Pipeline — Kafka + PostgreSQL + Redis",
-    dates: "May 26 – June 1",
+    dates: "May 28 – June 3",
     focus:
       "Real-time log ingestion via Kafka, persistence to PostgreSQL, Redis caching layer, REST endpoints serving cached data.",
     learnH: 18,
@@ -82,7 +82,7 @@ export const WEEKS = [
     color: "#ea580c",
     tag: "MVP",
     title: "MVP — React Dashboard + Basic AI Incident Summarization",
-    dates: "June 2 – June 8",
+    dates: "June 4 – June 10",
     focus:
       "React dashboard consuming live APIs, first AI component (LLM incident summarization), end-to-end MVP.",
     learnH: 18,
@@ -116,7 +116,7 @@ export const WEEKS = [
     color: "#b45309",
     tag: null,
     title: "RAG Pipeline — Vector DB, Embeddings & Intelligent Search",
-    dates: "June 9 – June 15",
+    dates: "June 11 – June 17",
     focus:
       "Full RAG system — embed historical incidents, vector similarity search, context-aware AI analysis. Replace naive LLM calls with RAG.",
     learnH: 18,
@@ -150,7 +150,7 @@ export const WEEKS = [
     color: "#2563eb",
     tag: "Prod",
     title: "AWS Deployment — EC2, S3, IAM + Security Hardening",
-    dates: "June 16 – June 22",
+    dates: "June 18 – June 24",
     focus:
       "Production-grade AWS deployment. All services containerized on EC2. S3 log archival. IAM least-privilege. HTTPS enforced.",
     learnH: 18,
@@ -185,7 +185,7 @@ export const WEEKS = [
     color: "#16a34a",
     tag: null,
     title: "Kubernetes, CI/CD Hardening & Production Polish",
-    dates: "June 23 – June 30",
+    dates: "June 25 – June 30",
     focus:
       "Kubernetes basics (optional scaling), full CI/CD staging→prod gates, observability, final polish and documentation.",
     learnH: 18,
@@ -304,24 +304,24 @@ const _LIGHT_BLOCKS = [
 ];
 
 const _MILESTONES = {
-  "2026-05-25": "Week 1 checkpoint: docker compose up — all services healthy",
-  "2026-06-01": "Week 2 checkpoint: logs flowing Kafka → Postgres, Redis cache live",
-  "2026-06-08": "Week 3 MVP: login → dashboard → AI incident summary demo",
-  "2026-06-15": "Week 4 checkpoint: RAG search + SSE log stream in UI",
-  "2026-06-22": "Week 5 checkpoint: HTTPS production URL on EC2",
+  "2026-05-27": "Week 1 checkpoint: docker compose up — all services healthy",
+  "2026-06-03": "Week 2 checkpoint: logs flowing Kafka → Postgres, Redis cache live",
+  "2026-06-10": "Week 3 MVP: login → dashboard → AI incident summary demo",
+  "2026-06-17": "Week 4 checkpoint: RAG search + SSE log stream in UI",
+  "2026-06-24": "Week 5 checkpoint: HTTPS production URL on EC2",
   "2026-06-30": "FINAL: Portfolio-ready — CI/CD, K8s manifests, load test doc",
 };
 
 export const SPRINT_WEEK_ANCHORS = [
-  { n: 1, anchor: "2026-05-20" },
-  { n: 2, anchor: "2026-05-26" },
-  { n: 3, anchor: "2026-06-02" },
-  { n: 4, anchor: "2026-06-09" },
-  { n: 5, anchor: "2026-06-16" },
-  { n: 6, anchor: "2026-06-23" },
+  { n: 1, anchor: "2026-05-22" },
+  { n: 2, anchor: "2026-05-28" },
+  { n: 3, anchor: "2026-06-04" },
+  { n: 4, anchor: "2026-06-11" },
+  { n: 5, anchor: "2026-06-18" },
+  { n: 6, anchor: "2026-06-25" },
 ];
 
-export const SCHEDULE_RANGE = { start: "2026-05-20", end: "2026-06-30" };
+export const SCHEDULE_RANGE = { start: "2026-05-22", end: "2026-06-30" };
 
 function _fmt(d) {
   const y = d.getFullYear();
@@ -401,11 +401,11 @@ export const HOURS_MATH = {
 
 function _weekForDate(d) {
   const t = d.getTime();
-  if (t >= new Date(2026, 5, 23).getTime()) return 6;
-  if (t >= new Date(2026, 5, 16).getTime()) return 5;
-  if (t >= new Date(2026, 5, 9).getTime()) return 4;
-  if (t >= new Date(2026, 5, 2).getTime()) return 3;
-  if (t >= new Date(2026, 4, 26).getTime()) return 2;
+  if (t >= new Date(2026, 5, 25).getTime()) return 6;
+  if (t >= new Date(2026, 5, 18).getTime()) return 5;
+  if (t >= new Date(2026, 5, 11).getTime()) return 4;
+  if (t >= new Date(2026, 5, 4).getTime()) return 3;
+  if (t >= new Date(2026, 4, 28).getTime()) return 2;
   return 1;
 }
 
@@ -425,7 +425,7 @@ export function generateDailyPlan() {
   }
 
   const days = [];
-  const start = new Date(2026, 4, 20);
+  const start = new Date(2026, 4, 22);
   const end = new Date(2026, 5, 30);
 
   for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {

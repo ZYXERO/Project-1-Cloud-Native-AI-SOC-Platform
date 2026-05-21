@@ -1,6 +1,6 @@
 # Implementation Planning & Scheduling
 
-Interactive execution plan for **Project 1: Cloud-Native AI SOC Platform** (May 20 → June 30, 2026).
+Interactive execution plan for **Project 1: Cloud-Native AI SOC Platform** (May 22 → June 30, 2026). Project work begins **Friday, May 22**.
 
 ## Quick start
 
@@ -32,7 +32,7 @@ node build-schedule.mjs
 ## Planner views
 
 1. **Weekly columns** — Sun–Sat with full personal routine + SOC tasks per time block  
-2. **Day-by-day** — Every date May 20–Jun 30 with learn/build tasks  
+2. **Day-by-day** — Every date May 22–Jun 30 with learn/build tasks  
 3. **Sprint plan** — Week focus, deliverables, dependencies  
 4. **Overview & Gantt** — 18h learn / 27h build per week  
 5. **My routine** — Template for Mon/Wed/Sat/Sun vs Tue/Thu/Fri  

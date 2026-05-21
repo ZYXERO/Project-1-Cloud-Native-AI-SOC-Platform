@@ -144,7 +144,7 @@
     <div class="top">
       <div>
         <h1 id="page-title">Cloud-Native AI SOC Platform — Execution Schedule</h1>
-        <p class="meta" id="page-meta">May 20 → June 30 · 6 weeks · 45 hrs/week · 270 hrs · 40% learn / 60% build</p>
+        <p class="meta" id="page-meta">May 22 → June 30 · 6 weeks · 45 hrs/week · 270 hrs · 40% learn / 60% build</p>
       </div>
       <button type="button" class="copy-btn" id="copy-week">Copy week</button>
     </div>
@@ -184,7 +184,7 @@
     <div class="panel" id="panel-daily">
       <div class="daily-toolbar">
         <label>Week <select id="daily-week-filter"><option value="all">All weeks</option></select></label>
-        <label>Jump to <input type="date" id="daily-jump" min="2026-05-20" max="2026-06-30" value="2026-05-20" /></label>
+        <label>Jump to <input type="date" id="daily-jump" min="2026-05-22" max="2026-06-30" value="2026-05-22" /></label>
         <button type="button" class="copy-btn" id="copy-day">Copy selected day</button>
       </div>
       <div id="daily-list" class="day-list"><p class="loading">Loading schedule…</p></div>
@@ -422,10 +422,12 @@
       };
       document.getElementById("wk-today").onclick = () => {
         const now = new Date();
-        if (now >= new Date(2026, 4, 20) && now <= new Date(2026, 5, 30)) {
+        if (now >= new Date(2026, 4, 22) && now <= new Date(2026, 5, 30)) {
           calendarWeek = _weekForDate(now);
-        } else {
+        } else if (now < new Date(2026, 4, 22)) {
           calendarWeek = 1;
+        } else {
+          calendarWeek = 6;
         }
         renderWeeklyColumns();
       };
@@ -547,9 +549,12 @@
       renderDaily();
       const jump = document.getElementById("daily-jump");
       const now = new Date();
-      if (now >= new Date(2026, 4, 20) && now <= new Date(2026, 5, 30)) {
+      if (now >= new Date(2026, 4, 22) && now <= new Date(2026, 5, 30)) {
         calendarWeek = _weekForDate(now);
         jump.value = now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0");
+      } else if (now < new Date(2026, 4, 22)) {
+        jump.value = "2026-05-22";
+        calendarWeek = 1;
       }
     } catch (e) {
       showError(e.message);

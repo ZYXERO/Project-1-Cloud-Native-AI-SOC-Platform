@@ -9,7 +9,7 @@ Production-grade **Security Operations Center (SOC)** platform with real-time lo
 
 ## Sprint timeline
 
-- **Start:** May 20, 2026  
+- **Start:** May 22, 2026 (Friday)  
 - **Deadline:** June 30, 2026  
 - **Workload:** 45 hours/week · 270 hours total · 40% learning / 60% building  
 

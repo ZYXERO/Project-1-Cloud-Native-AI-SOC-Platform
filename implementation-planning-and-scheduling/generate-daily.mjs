@@ -19,12 +19,12 @@ const LIGHT_BLOCKS = [
 function weekForDate(d) {
   const t = d.getTime();
   const bounds = [
-    [new Date(2026, 4, 20), 1],
-    [new Date(2026, 4, 26), 2],
-    [new Date(2026, 5, 2), 3],
-    [new Date(2026, 5, 9), 4],
-    [new Date(2026, 5, 16), 5],
-    [new Date(2026, 5, 23), 6],
+    [new Date(2026, 4, 22), 1],
+    [new Date(2026, 4, 28), 2],
+    [new Date(2026, 5, 4), 3],
+    [new Date(2026, 5, 11), 4],
+    [new Date(2026, 5, 18), 5],
+    [new Date(2026, 5, 25), 6],
   ];
   for (let i = bounds.length - 1; i >= 0; i--) {
     if (t >= bounds[i][0].getTime()) return bounds[i][1];
@@ -74,7 +74,7 @@ const MILESTONES = {
 };
 
 const days = [];
-const start = new Date(2026, 4, 20);
+const start = new Date(2026, 4, 22);
 const end = new Date(2026, 5, 30);
 
 for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
