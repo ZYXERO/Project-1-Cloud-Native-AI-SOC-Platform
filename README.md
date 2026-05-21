@@ -13,13 +13,13 @@ Production-grade **Security Operations Center (SOC)** platform with real-time lo
 - **Deadline:** June 30, 2026  
 - **Workload:** 45 hours/week · 270 hours total · 40% learning / 60% building  
 
-Open the interactive schedule:
+Open the interactive schedule locally:
 
 ```text
 implementation-planning-and-scheduling/schedule.html
 ```
 
-(Double-click or open in a browser — no install required.)
+**Share online (Vercel):** Import this repo on [Vercel](https://vercel.com) — config is in root `vercel.json`. Step-by-step: [implementation-planning-and-scheduling/DEPLOY.md](./implementation-planning-and-scheduling/DEPLOY.md).
 
 ## Repository layout
 

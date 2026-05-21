@@ -10,7 +10,9 @@ Open the planner in any browser:
 schedule.html
 ```
 
-No build step required. Optional rebuild after editing source files:
+No build step required for local use. Optional rebuild after editing source files:
+
+**Deploy on Vercel (public link):** See [DEPLOY.md](./DEPLOY.md).
 
 ```bash
 node build-schedule.mjs

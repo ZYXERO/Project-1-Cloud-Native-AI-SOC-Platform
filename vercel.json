@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "node implementation-planning-and-scheduling/build-schedule.mjs",
+  "outputDirectory": "implementation-planning-and-scheduling",
+  "framework": null,
+  "rewrites": [
+    { "source": "/", "destination": "/schedule.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    }
+  ]
+}
